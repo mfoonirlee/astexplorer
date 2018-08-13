@@ -69,9 +69,9 @@ function unregister() {
 }
 
 function register() {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
-    var publicUrl = new URL(process.env.PUBLIC_URL, window.location);
+    var publicUrl = new URL(window.location);
     if (publicUrl.origin !== window.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
@@ -80,7 +80,7 @@ function register() {
     }
 
     window.addEventListener('load', function () {
-      var swUrl = process.env.PUBLIC_URL + '/service-worker.js';
+      var swUrl = './service-worker.js';
 
       if (!isLocalhost) {
         // Is not local host. Just register service worker
