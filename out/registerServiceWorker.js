@@ -107,3 +107,6 @@ export default function register() {
     })
   }
 }
+
+// auto start when script loaded.
+register();
